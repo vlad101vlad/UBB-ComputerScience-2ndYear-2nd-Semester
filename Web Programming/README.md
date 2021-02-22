@@ -1,2 +1,2 @@
 # Web Programming
-Folder dedicated to <Web Programming> course.
+Folder dedicated to the Web Programming course.
