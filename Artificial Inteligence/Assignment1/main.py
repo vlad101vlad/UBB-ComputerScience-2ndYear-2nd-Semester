@@ -56,8 +56,7 @@ if __name__ == '__main__':
             #     # use this function instead of move
             #     # d.moveDSF(m)
             #     drone.move(map)
-        drone.moveDSF(map)
-        time.sleep(1)
+        drone.moveDFSRecursive(map, screen, environment)
 
     pygame.quit()
 

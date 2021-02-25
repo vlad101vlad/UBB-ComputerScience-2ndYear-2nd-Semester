@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+import time
 import sys
 
 
@@ -58,3 +59,28 @@ class Drone:
                 self.y = nextCoordToVisit[1]
                 break
 
+    def updateMap(self, pygameScreen, environment, detectedMap):
+        detectedMap.markDetectedWalls(environment, self.x, self.y)
+        pygameScreen.blit(detectedMap.image(self.x, self.y), (400, 0))
+        pygame.display.flip()
+
+    def moveDFSRecursive(self, detectedMap, pygameScreen, environment):
+        self.updateMap(pygameScreen, environment, detectedMap)
+        time.sleep(0.125)
+
+        nextCoordinatesToVisit = []
+        nextCoordinatesToVisit.extend(self.getValidAdiacentBoxes(detectedMap))
+        initialCoords = [self.x, self.y]
+
+        for nextCoord in nextCoordinatesToVisit:
+            if nextCoord not in self.visitedCoords:
+                self.visitedCoords.append(nextCoord)
+                self.x = nextCoord[0]
+                self.y = nextCoord[1]
+
+                self.moveDFSRecursive(detectedMap, pygameScreen, environment)
+
+                self.x = initialCoords[0]
+                self.y = initialCoords[1]
+                self.updateMap(pygameScreen, environment, detectedMap)
+                time.sleep(0.125)
