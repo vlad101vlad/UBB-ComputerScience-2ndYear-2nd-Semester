@@ -13,6 +13,9 @@ class Environment:
         self.__m = 20
         self.__surface = np.zeros((self.__n, self.__m))
 
+    def getSurface(self):
+        return self.__surface
+
     def randomMap(self, fill=0.2):
         for i in range(self.__n):
             for j in range(self.__m):

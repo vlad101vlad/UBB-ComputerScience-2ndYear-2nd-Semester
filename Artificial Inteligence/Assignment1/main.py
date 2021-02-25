@@ -24,9 +24,15 @@ if __name__ == '__main__':
     pygame.display.set_icon(logo)
     pygame.display.set_caption("drone exploration")
 
+    # Fixed bug, sometimes the drone is spawn in a location which there was a brick
+    environmentSurface = environment.getSurface()
     # we position the drone somewhere in the area
     x = randint(0, 19)
     y = randint(0, 19)
+    while environmentSurface[x][y] == BRICK:
+        # When the random position of the drone is a brick, we generate another random position
+        x = randint(0, 19)
+        y = randint(0, 19)
 
     # cream drona
     drone = Drone(x, y)
