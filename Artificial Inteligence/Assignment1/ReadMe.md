@@ -48,3 +48,7 @@ When there are no more empty squares to visit (the search is at end, the stack i
 the position of the drone will be set to none ( ​ _x = None, y = None​_ ).
 
 
+## How to use:
+* Open the project in the desired editor
+* Run main.py
+
