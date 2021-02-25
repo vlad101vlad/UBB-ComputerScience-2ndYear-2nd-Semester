@@ -19,3 +19,9 @@ DISCOVERED = 0
 BRICK = 1
 
 
+# Drone speed constants
+SUPER_FAST = 0.062
+FAST = 0.125
+NORMAL = 0.25
+SLOW = 0.5
+SNAIL = 1

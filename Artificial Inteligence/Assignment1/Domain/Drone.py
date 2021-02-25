@@ -1,5 +1,6 @@
 import pygame
 from pygame.locals import *
+from Domain.constants import *
 import time
 import sys
 
@@ -31,19 +32,19 @@ class Drone:
         availableBoxes = []
 
         if self.x > 0:
-            if detectedMap.surface[self.x - 1][self.y] == 0:
+            if detectedMap.surface[self.x - 1][self.y] == DISCOVERED:
                 availableBoxes.append([self.x - 1, self.y])
 
         if self.x < 19:
-            if detectedMap.surface[self.x + 1][self.y] == 0:
+            if detectedMap.surface[self.x + 1][self.y] == DISCOVERED:
                 availableBoxes.append([self.x + 1, self.y])
 
         if self.y > 0:
-            if detectedMap.surface[self.x][self.y - 1] == 0:
+            if detectedMap.surface[self.x][self.y - 1] == DISCOVERED:
                 availableBoxes.append([self.x, self.y - 1])
 
         if self.y < 19:
-            if detectedMap.surface[self.x][self.y + 1] == 0:
+            if detectedMap.surface[self.x][self.y + 1] == DISCOVERED:
                 availableBoxes.append([self.x, self.y + 1])
 
         return availableBoxes
@@ -68,7 +69,7 @@ class Drone:
         # VERY IMPORTANT! We must update the detectedMap with the sensor information before we get the next possible
         # coordinates to visit
         self.updateMap(pygameScreen, environment, detectedMap)
-        time.sleep(0.062)
+        time.sleep(FAST)
 
         nextCoordinatesToVisit = []
         nextCoordinatesToVisit.extend(self.getValidAdiacentBoxes(detectedMap))
@@ -88,4 +89,4 @@ class Drone:
                 self.x = initialCoordinates[0]
                 self.y = initialCoordinates[1]
                 self.updateMap(pygameScreen, environment, detectedMap)
-                time.sleep(0.062)
+                time.sleep(FAST)
