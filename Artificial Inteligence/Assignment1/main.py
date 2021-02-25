@@ -7,7 +7,7 @@ from Domain.constants import *
 
 import pygame
 import time
-
+import easygui
 if __name__ == '__main__':
     # we create the environment
     environment = Environment()
@@ -15,7 +15,7 @@ if __name__ == '__main__':
     # print(str(e))
 
     # we create the map
-    map = DMap()
+    droneMap = DMap()
 
     # initialize the pygame module
     pygame.init()
@@ -47,9 +47,10 @@ if __name__ == '__main__':
 
     # main loop
     while running:
-        map.markDetectedWalls(environment, drone.x, drone.y)
-        screen.blit(map.image(drone.x, drone.y), (400, 0))
-        pygame.display.flip()
+        # droneMap.markDetectedWalls(environment, drone.x, drone.y)
+        # screen.blit(droneMap.image(drone.x, drone.y), (400, 0))
+        # pygame.display.flip()
+        drone.updateMap(screen, environment, droneMap)
 
         # event handling, gets all event from the event queue
         for event in pygame.event.get():
@@ -62,7 +63,17 @@ if __name__ == '__main__':
             #     # use this function instead of move
             #     # d.moveDSF(m)
             #     drone.move(map)
-        drone.moveDFSRecursive(map, screen, environment)
+        drone.moveDFSRecursive(droneMap, screen, environment)
+
+        # When we reach this point, in theory, all the possible discovered blocks were parsed, thus we can exit the game
+        drone.x = None
+        drone.y = None
+        # We set the drone coordinates to 'None as required'
+
+        easygui.msgbox("The map is fully discovered!\n"
+                       "The game will automatically close in 3sec after you press ok", title="Game is over")
+        time.sleep(3)  # We will automatically close the app after 10 seconds
+        break
 
     pygame.quit()
 

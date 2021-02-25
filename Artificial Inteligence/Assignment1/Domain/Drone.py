@@ -68,7 +68,7 @@ class Drone:
         # VERY IMPORTANT! We must update the detectedMap with the sensor information before we get the next possible
         # coordinates to visit
         self.updateMap(pygameScreen, environment, detectedMap)
-        time.sleep(0.125)
+        time.sleep(0.062)
 
         nextCoordinatesToVisit = []
         nextCoordinatesToVisit.extend(self.getValidAdiacentBoxes(detectedMap))
@@ -88,4 +88,4 @@ class Drone:
                 self.x = initialCoordinates[0]
                 self.y = initialCoordinates[1]
                 self.updateMap(pygameScreen, environment, detectedMap)
-                time.sleep(0.125)
+                time.sleep(0.062)
