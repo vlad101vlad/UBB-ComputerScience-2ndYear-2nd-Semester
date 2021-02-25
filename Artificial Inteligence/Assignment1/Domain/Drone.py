@@ -65,12 +65,15 @@ class Drone:
         pygame.display.flip()
 
     def moveDFSRecursive(self, detectedMap, pygameScreen, environment):
+        # VERY IMPORTANT! We must update the detectedMap with the sensor information before we get the next possible
+        # coordinates to visit
         self.updateMap(pygameScreen, environment, detectedMap)
         time.sleep(0.125)
 
         nextCoordinatesToVisit = []
         nextCoordinatesToVisit.extend(self.getValidAdiacentBoxes(detectedMap))
-        initialCoords = [self.x, self.y]
+        # We get the initial coordinates for the trace coming back from the recursion
+        initialCoordinates = [self.x, self.y]
 
         for nextCoord in nextCoordinatesToVisit:
             if nextCoord not in self.visitedCoords:
@@ -80,7 +83,9 @@ class Drone:
 
                 self.moveDFSRecursive(detectedMap, pygameScreen, environment)
 
-                self.x = initialCoords[0]
-                self.y = initialCoords[1]
+                # When we come back from the recursive call, we restore the initial coordinates of the drone and
+                # update teh map, in order to be able to see the trace
+                self.x = initialCoordinates[0]
+                self.y = initialCoordinates[1]
                 self.updateMap(pygameScreen, environment, detectedMap)
                 time.sleep(0.125)
