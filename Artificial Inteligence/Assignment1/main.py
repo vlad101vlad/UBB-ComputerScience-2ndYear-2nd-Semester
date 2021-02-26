@@ -5,10 +5,12 @@ from Domain.Map import DMap
 from Domain.Drone import Drone
 from Domain.constants import *
 
+import sys
 import pygame
 import time
 import easygui
-if __name__ == '__main__':
+
+def main():
     # we create the environment
     environment = Environment()
     environment.loadEnvironment("test2.map")
@@ -57,12 +59,14 @@ if __name__ == '__main__':
             # only do something if the event is of type QUIT
             if event.type == pygame.QUIT:
                 # change the value to False, to exit the main loop
-                running = False
+                pygame.quit()
+                raise SystemExit
 
             # if event.type == pygame.KEYDOWN:
             #     # use this function instead of move
             #     # d.moveDSF(m)
             #     drone.move(map)
+
         drone.moveDFSRecursive(droneMap, screen, environment)
 
         # When we reach this point, in theory, all the possible discovered blocks were parsed, thus we can exit the game
@@ -76,4 +80,8 @@ if __name__ == '__main__':
         break
 
     pygame.quit()
+
+
+if __name__ == '__main__':
+    main()
 

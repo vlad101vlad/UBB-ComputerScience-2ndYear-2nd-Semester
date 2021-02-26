@@ -1,5 +1,4 @@
 import pygame
-from pygame.locals import *
 from Domain.constants import *
 import time
 import sys
@@ -12,21 +11,21 @@ class Drone:
         self.visitedCoords = []
         self.stackNextCoordToVisit = []
 
-    def move(self, detectedMap):
-        pressed_keys = pygame.key.get_pressed()
-        if self.x > 0:
-            if pressed_keys[K_UP] and detectedMap.surface[self.x - 1][self.y] == 0:
-                self.x = self.x - 1
-        if self.x < 19:
-            if pressed_keys[K_DOWN] and detectedMap.surface[self.x + 1][self.y] == 0:
-                self.x = self.x + 1
-
-        if self.y > 0:
-            if pressed_keys[K_LEFT] and detectedMap.surface[self.x][self.y - 1] == 0:
-                self.y = self.y - 1
-        if self.y < 19:
-            if pressed_keys[K_RIGHT] and detectedMap.surface[self.x][self.y + 1] == 0:
-                self.y = self.y + 1
+    # def move(self, detectedMap):
+    #     pressed_keys = pygame.key.get_pressed()
+    #     if self.x > 0:
+    #         if pressed_keys[K_UP] and detectedMap.surface[self.x - 1][self.y] == 0:
+    #             self.x = self.x - 1
+    #     if self.x < 19:
+    #         if pressed_keys[K_DOWN] and detectedMap.surface[self.x + 1][self.y] == 0:
+    #             self.x = self.x + 1
+    #
+    #     if self.y > 0:
+    #         if pressed_keys[K_LEFT] and detectedMap.surface[self.x][self.y - 1] == 0:
+    #             self.y = self.y - 1
+    #     if self.y < 19:
+    #         if pressed_keys[K_RIGHT] and detectedMap.surface[self.x][self.y + 1] == 0:
+    #             self.y = self.y + 1
 
     def getValidAdiacentBoxes(self, detectedMap):
         availableBoxes = []
@@ -64,6 +63,9 @@ class Drone:
         detectedMap.markDetectedWalls(environment, self.x, self.y)
         pygameScreen.blit(detectedMap.image(self.x, self.y), (400, 0))
         pygame.display.flip()
+        # Very IMPORTANT! If we don't include the event pump at each frame update, the app will not interact anymore
+        # with the OS and it will think that this app is blocked , thus it will try to kill it.
+        pygame.event.pump()
 
     def moveDFSRecursive(self, detectedMap, pygameScreen, environment):
         # VERY IMPORTANT! We must update the detectedMap with the sensor information before we get the next possible
