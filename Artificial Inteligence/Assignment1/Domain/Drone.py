@@ -10,6 +10,7 @@ class Drone:
         self.y = y
         self.visitedCoords = []
         self.stackNextCoordToVisit = []
+        self.mainStack = []
 
     # def move(self, detectedMap):
     #     pressed_keys = pygame.key.get_pressed()
@@ -67,11 +68,30 @@ class Drone:
         # with the OS and it will think that this app is blocked , thus it will try to kill it.
         pygame.event.pump()
 
+    def moveDFSIterative(self, detectedMap):
+        initialCoordinates = [self.x, self.y]
+        if not initialCoordinates in self.visitedCoords:
+            self.visitedCoords.append(initialCoordinates)
+
+            nextCoordinatesToVisit = []
+            nextCoordinatesToVisit.extend(self.getValidAdiacentBoxes(detectedMap))
+
+            for possibleCoord in nextCoordinatesToVisit:
+                if possibleCoord not in self.visitedCoords:
+                    self.mainStack.append(initialCoordinates)  # This is needed for the traceBack
+                    self.mainStack.append(possibleCoord)
+
+        if len(self.mainStack) > 0:
+
+            nextCoords = self.mainStack.pop()
+            self.x = nextCoords[0]
+            self.y = nextCoords[1]
+
     def moveDFSRecursive(self, detectedMap, pygameScreen, environment):
         # VERY IMPORTANT! We must update the detectedMap with the sensor information before we get the next possible
         # coordinates to visit
         self.updateMap(pygameScreen, environment, detectedMap)
-        time.sleep(FAST)
+        time.sleep(SLOW)
 
         nextCoordinatesToVisit = []
         nextCoordinatesToVisit.extend(self.getValidAdiacentBoxes(detectedMap))

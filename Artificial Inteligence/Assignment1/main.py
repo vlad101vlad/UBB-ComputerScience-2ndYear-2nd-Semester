@@ -10,6 +10,7 @@ import pygame
 import time
 import easygui
 
+
 def main():
     # we create the environment
     environment = Environment()
@@ -52,36 +53,39 @@ def main():
         # droneMap.markDetectedWalls(environment, drone.x, drone.y)
         # screen.blit(droneMap.image(drone.x, drone.y), (400, 0))
         # pygame.display.flip()
-        drone.updateMap(screen, environment, droneMap)
-
+        # drone.updateMap(screen, environment, droneMap)
         # event handling, gets all event from the event queue
-        for event in pygame.event.get():
-            # only do something if the event is of type QUIT
-            if event.type == pygame.QUIT:
-                # change the value to False, to exit the main loop
-                pygame.quit()
-                raise SystemExit
+        # for event in pygame.event.get():
+        #
+        #     # only do something if the event is of type QUIT
+        #     if event.type == pygame.QUIT:
+        #         # change the value to False, to exit the main loop
+        #         pygame.quit()
+        #         raise SystemExit
 
-            # if event.type == pygame.KEYDOWN:
-            #     # use this function instead of move
-            #     # d.moveDSF(m)
-            #     drone.move(map)
+        # if event.type == pygame.KEYDOWN:
+        #     # use this function instead of move
+        #     # d.moveDSF(m)
+        #     drone.move(map)
+        time.sleep(FAST)
+        drone.updateMap(screen, environment, droneMap)
+        drone.moveDFSIterative(droneMap)
+        # drone.moveDFSRecursive(droneMap, screen, environment)
 
-        drone.moveDFSRecursive(droneMap, screen, environment)
+        if not drone.mainStack:
+            # When we reach this point, in theory,
+            # all the possible discovered blocks were parsed, thus we can exit the game
+            drone.x = None
+            drone.y = None
+            # We set the drone coordinates to 'None as required'
 
-        # When we reach this point, in theory, all the possible discovered blocks were parsed, thus we can exit the game
-        drone.x = None
-        drone.y = None
-        # We set the drone coordinates to 'None as required'
-
-        easygui.msgbox("The map is fully discovered!\n"
-                       "The game will automatically close in 3sec after you press ok", title="Game is over")
-        time.sleep(3)  # We will automatically close the app after 10 seconds
-        break
+            easygui.msgbox("The map is fully discovered!\n"
+                           "The game will automatically close in 3sec after you press ok", title="Game is over")
+            time.sleep(3)  # We will automatically close the app after 10 seconds
+            break
 
     pygame.quit()
 
 
 if __name__ == '__main__':
     main()
-
