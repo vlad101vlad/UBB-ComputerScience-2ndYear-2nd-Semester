@@ -15,6 +15,10 @@ class Controller:
         self.environment = None
         self.map = None
         self.screen = None
+        self.droneSpeed = None
+
+    def setDroneSpeed(self, droneSpeed):
+        self.droneSpeed = droneSpeed
 
     def updateMap(self, pygameScreen, environment, detectedMap):
         detectedMap.markDetectedWalls(environment, self.drone.x, self.drone.y)
@@ -30,7 +34,7 @@ class Controller:
 
         running = True
         while running:
-            time.sleep(FAST)
+            time.sleep(speedConstants[self.droneSpeed])
             self.updateMap(self.screen, self.environment, self.map)
             self.drone.moveDFSIterative(self.map)
 
