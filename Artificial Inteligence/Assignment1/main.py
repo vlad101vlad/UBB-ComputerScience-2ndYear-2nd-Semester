@@ -5,6 +5,8 @@ from Domain.Map import DMap
 from Domain.Drone import Drone
 from Domain.constants import *
 
+from View.Console import View
+
 import sys
 import pygame
 import time
@@ -50,27 +52,9 @@ def main():
 
     # main loop
     while running:
-        # droneMap.markDetectedWalls(environment, drone.x, drone.y)
-        # screen.blit(droneMap.image(drone.x, drone.y), (400, 0))
-        # pygame.display.flip()
-        # drone.updateMap(screen, environment, droneMap)
-        # event handling, gets all event from the event queue
-        # for event in pygame.event.get():
-        #
-        #     # only do something if the event is of type QUIT
-        #     if event.type == pygame.QUIT:
-        #         # change the value to False, to exit the main loop
-        #         pygame.quit()
-        #         raise SystemExit
-
-        # if event.type == pygame.KEYDOWN:
-        #     # use this function instead of move
-        #     # d.moveDSF(m)
-        #     drone.move(map)
         time.sleep(FAST)
         drone.updateMap(screen, environment, droneMap)
         drone.moveDFSIterative(droneMap)
-        # drone.moveDFSRecursive(droneMap, screen, environment)
 
         if not drone.mainStack:
             # When we reach this point, in theory,
@@ -88,4 +72,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+    menu = View()
+    menu.runView()
+
+
+
