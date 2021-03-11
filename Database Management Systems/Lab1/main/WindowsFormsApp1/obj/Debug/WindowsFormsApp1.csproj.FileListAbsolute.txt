@@ -1,0 +1,9 @@
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\main\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\main\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\main\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\main\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
