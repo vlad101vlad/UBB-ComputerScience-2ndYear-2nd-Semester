@@ -1,0 +1,31 @@
+.center{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.crossTable{
+    border-style: none;
+}
+
+
+table, tr{
+    border-style: solid;
+    border-radius: 10%;
+}
+
+img{
+    width: 250px;
+    height: 250px;
+    opacity: 75%;
+    border-radius: 10px;
+}
+img:hover{
+    opacity: 100%;
+}
+
+table{
+    width: 600px;
+    height: 600px;
+}
