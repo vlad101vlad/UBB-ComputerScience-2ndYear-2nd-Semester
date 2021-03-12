@@ -7,3 +7,13 @@ C:\Users\User\source\repos\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.cach
 C:\Users\User\source\repos\Lab1\Lab1\obj\Debug\Lab1.csproj.CoreCompileInputs.cache
 C:\Users\User\source\repos\Lab1\Lab1\obj\Debug\Lab1.exe
 C:\Users\User\source\repos\Lab1\Lab1\obj\Debug\Lab1.pdb
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\bin\Debug\Lab1.exe.config
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\bin\Debug\Lab1.exe
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\bin\Debug\Lab1.pdb
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\obj\Debug\Lab1.csprojAssemblyReference.cache
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\obj\Debug\Lab1.mainWindow.resources
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\obj\Debug\Lab1.Properties.Resources.resources
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\obj\Debug\Lab1.csproj.GenerateResource.cache
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\obj\Debug\Lab1.csproj.CoreCompileInputs.cache
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\obj\Debug\Lab1.exe
+D:\Facultate\Anul II\Sem II\Github\UBB-ComputerScience-2ndYear-2nd-Semester\Database Management Systems\Lab1\Lab1\obj\Debug\Lab1.pdb
