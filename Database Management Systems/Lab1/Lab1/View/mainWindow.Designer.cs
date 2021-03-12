@@ -7,6 +7,7 @@
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
+
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
@@ -85,6 +86,7 @@
             this.Name = "mainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lab1";
+            this.Load += new System.EventHandler(this.mainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ubbPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parentTableGridView)).EndInit();
             this.ResumeLayout(false);
@@ -96,6 +98,9 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.PictureBox ubbPictureBox;
         private System.Windows.Forms.DataGridView parentTableGridView;
+
+
+
     }
 }
 

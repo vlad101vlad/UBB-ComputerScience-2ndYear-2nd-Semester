@@ -46,15 +46,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="mainWindow.cs">
+    <Compile Include="Domain\City.cs" />
+    <Compile Include="Domain\Country.cs" />
+    <Compile Include="View\mainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="mainWindow.Designer.cs">
+    <Compile Include="View\mainWindow.Designer.cs">
       <DependentUpon>mainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="mainWindow.resx">
+    <Compile Include="Repository\CityRepository.cs" />
+    <Compile Include="Repository\CountyRepository.cs" />
+    <Compile Include="Service\CountyService.cs" />
+    <EmbeddedResource Include="View\mainWindow.resx">
       <DependentUpon>mainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -85,6 +90,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

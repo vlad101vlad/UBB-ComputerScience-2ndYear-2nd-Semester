@@ -8,17 +8,12 @@ using System.Data;
 
 namespace Lab1.Repository
 {
-    class CityRepository
+    public class CountyRepository
     {
         public string ConnectionString = "Data Source = VLADPC-S; Initial Catalog = JobTree; Integrated Security=True";
         SqlConnection databaseConnection = new SqlConnection();
-     
 
-        private DataTable cities;
-
-        public CityRepository()
-        {
-        }
+        private DataTable counties;
 
         private void openDatabaseConnection()
         {
@@ -27,9 +22,33 @@ namespace Lab1.Repository
                 databaseConnection.Open();
         }
 
-        private void readData()
+        public CountyRepository()
+        {
+            counties = new DataTable();
+            readCounties();
+        }
+
+        public DataTable getCounties()
+        {
+            return counties;
+        }
+
+        void readCounties()
         {
             openDatabaseConnection();
+            SqlCommand command = new SqlCommand("SELECT * FROM County", databaseConnection);
+
+            try
+            {
+                SqlDataReader reader = command.ExecuteReader();
+                counties.Load(reader);
+                Console.WriteLine("Succesfully loaded counties");
+            }
+            catch
+            {
+                throw;
+            }
+            
         }
     }
 }
