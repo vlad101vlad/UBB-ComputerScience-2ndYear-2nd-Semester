@@ -29,11 +29,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.ubbPictureBox = new System.Windows.Forms.PictureBox();
             this.parentTableGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.ubbPictureBox)).BeginInit();
+            this.ubbPictureBox = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.parentTableGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ubbPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // titleLabel
@@ -49,6 +50,28 @@
             this.titleLabel.Text = "Welcome! Let\'s manage some databases";
             this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // parentTableGridView
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.parentTableGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.parentTableGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.parentTableGridView.Location = new System.Drawing.Point(24, 61);
+            this.parentTableGridView.Margin = new System.Windows.Forms.Padding(3, 3, 16, 3);
+            this.parentTableGridView.Name = "parentTableGridView";
+            this.parentTableGridView.ReadOnly = true;
+            this.parentTableGridView.RowHeadersWidth = 51;
+            this.parentTableGridView.RowTemplate.Height = 24;
+            this.parentTableGridView.Size = new System.Drawing.Size(958, 450);
+            this.parentTableGridView.TabIndex = 2;
+            this.parentTableGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.parentTableGridView_CellClick);
+            this.parentTableGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.parentTableGridView_DataBindingComplete);
+            // 
             // ubbPictureBox
             // 
             this.ubbPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -60,19 +83,6 @@
             this.ubbPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ubbPictureBox.TabIndex = 1;
             this.ubbPictureBox.TabStop = false;
-            // 
-            // parentTableGridView
-            // 
-            this.parentTableGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.parentTableGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.parentTableGridView.Location = new System.Drawing.Point(24, 61);
-            this.parentTableGridView.Margin = new System.Windows.Forms.Padding(3, 3, 16, 3);
-            this.parentTableGridView.Name = "parentTableGridView";
-            this.parentTableGridView.RowHeadersWidth = 51;
-            this.parentTableGridView.RowTemplate.Height = 24;
-            this.parentTableGridView.Size = new System.Drawing.Size(958, 450);
-            this.parentTableGridView.TabIndex = 2;
             // 
             // mainWindow
             // 
@@ -87,8 +97,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lab1";
             this.Load += new System.EventHandler(this.mainWindow_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.ubbPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.parentTableGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ubbPictureBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -98,9 +108,6 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.PictureBox ubbPictureBox;
         private System.Windows.Forms.DataGridView parentTableGridView;
-
-
-
     }
 }
 

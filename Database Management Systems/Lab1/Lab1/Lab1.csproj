@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="View\childWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\childWindow.Designer.cs">
+      <DependentUpon>childWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Domain\City.cs" />
     <Compile Include="Domain\Country.cs" />
     <Compile Include="View\mainWindow.cs">
@@ -59,6 +65,9 @@
     <Compile Include="Repository\CityRepository.cs" />
     <Compile Include="Repository\CountyRepository.cs" />
     <Compile Include="Service\CountyService.cs" />
+    <EmbeddedResource Include="View\childWindow.resx">
+      <DependentUpon>childWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\mainWindow.resx">
       <DependentUpon>mainWindow.cs</DependentUpon>
     </EmbeddedResource>

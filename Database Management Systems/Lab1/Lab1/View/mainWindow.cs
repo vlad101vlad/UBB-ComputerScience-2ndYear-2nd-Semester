@@ -35,5 +35,17 @@ namespace Lab1
 
             parentTableGridView.DataSource = counties;
         }
+
+        private void parentTableGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            parentTableGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            parentTableGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void parentTableGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CitiesWindow citiesWindow = new CitiesWindow();
+            citiesWindow.Show();
+        }
     }
 }
