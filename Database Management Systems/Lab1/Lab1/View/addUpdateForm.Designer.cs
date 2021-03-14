@@ -36,6 +36,7 @@
             this.cityNameTextBox = new System.Windows.Forms.TextBox();
             this.cityIDTextBox = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
+            this.informationLabel = new System.Windows.Forms.Label();
             this.addUpdateFormLayout.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -132,12 +133,23 @@
             this.saveButton.UseVisualStyleBackColor = true;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
+            // informationLabel
+            // 
+            this.informationLabel.AutoSize = true;
+            this.informationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.informationLabel.Location = new System.Drawing.Point(81, 21);
+            this.informationLabel.Name = "informationLabel";
+            this.informationLabel.Size = new System.Drawing.Size(52, 25);
+            this.informationLabel.TabIndex = 5;
+            this.informationLabel.Text = "TBA";
+            // 
             // addUpdateForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(616, 395);
+            this.Controls.Add(this.informationLabel);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.addUpdateFormLayout);
             this.Name = "addUpdateForm";
@@ -146,6 +158,7 @@
             this.addUpdateFormLayout.ResumeLayout(false);
             this.addUpdateFormLayout.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -159,5 +172,6 @@
         private System.Windows.Forms.TextBox cityNameTextBox;
         private System.Windows.Forms.TextBox cityIDTextBox;
         private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Label informationLabel;
     }
 }

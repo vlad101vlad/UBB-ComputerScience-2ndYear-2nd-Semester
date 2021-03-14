@@ -24,6 +24,7 @@ namespace Lab1.Repository
             databaseConnection.ConnectionString = ConnectionString;
             cities = new DataSet();
             adapter = new SqlDataAdapter();
+
             setAdapterInsertCommand();
         }
 
@@ -50,6 +51,17 @@ namespace Lab1.Repository
                                          SqlDbType.Int,10, "CountyID"));
         }
 
+        private void setAdapterDeleteCommand(int cityID)
+        {
+            String deleteString = "DELETE FROM City WHERE ID = @CityID";            
+            adapter.DeleteCommand = new SqlCommand(deleteString, databaseConnection);
+
+            SqlCommand deleteCommand = adapter.DeleteCommand;
+            deleteCommand.Parameters.AddWithValue("@CityID", cityID);
+            //deleteCommand.Parameters.Add(new SqlParameter("@CityID", SqlDbType.Int));
+            
+        }
+
         public void addNewCity(City newCity)
         {
             openDatabaseConnection();
@@ -58,6 +70,25 @@ namespace Lab1.Repository
             newCityRow["Name"] = newCity.getName();
             newCityRow["CountyID"] = newCity.getCountryID();
             cities.Tables["City"].Rows.Add(newCityRow);
+
+            adapter.Update(cities, "City");
+        }
+
+        private void setCityDatasetPrimaryKey()
+        {
+            DataColumn[] keyColumns = new DataColumn[1];
+            keyColumns[0] = cities.Tables["City"].Columns["ID"];
+            cities.Tables["City"].PrimaryKey = keyColumns;
+        }
+
+        public void deleteCity(int cityID)
+        {
+            openDatabaseConnection();
+
+            setCityDatasetPrimaryKey();
+            setAdapterDeleteCommand(cityID);
+            cities.Tables["City"].Rows.Find(cityID).Delete();
+
 
             adapter.Update(cities, "City");
         }

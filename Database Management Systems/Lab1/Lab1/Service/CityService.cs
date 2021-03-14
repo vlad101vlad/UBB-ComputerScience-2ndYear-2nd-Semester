@@ -23,6 +23,11 @@ namespace Lab1.Service
             cityRepository.addNewCity(newCity);
         }
 
+        public void deleteCity(int cityID)
+        {
+            cityRepository.deleteCity(cityID);
+        }
+
         public DataTable getCities(int countyID)
         {
             return this.cityRepository.getCitiesDataTable(countyID);

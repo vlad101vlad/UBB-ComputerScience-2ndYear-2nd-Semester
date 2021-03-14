@@ -65,13 +65,14 @@
             // 
             this.citiesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.citiesDataGridView.Location = new System.Drawing.Point(17, 54);
+            this.citiesDataGridView.MultiSelect = false;
             this.citiesDataGridView.Name = "citiesDataGridView";
             this.citiesDataGridView.RowHeadersWidth = 51;
+            this.citiesDataGridView.ReadOnly = true;
             this.citiesDataGridView.RowTemplate.Height = 24;
+            this.citiesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.citiesDataGridView.Size = new System.Drawing.Size(771, 260);
             this.citiesDataGridView.TabIndex = 2;
-            this.citiesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.citiesDataGridView.MultiSelect = false;
             this.citiesDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.citiesDataGridView_DataBindingComplete);
             // 
             // addNewCityButton
@@ -105,6 +106,7 @@
             this.deleteSelectedCityButton.TabIndex = 5;
             this.deleteSelectedCityButton.Text = "Delete Selected";
             this.deleteSelectedCityButton.UseVisualStyleBackColor = true;
+            this.deleteSelectedCityButton.Click += new System.EventHandler(this.deleteSelectedCityButton_Click);
             // 
             // tableLayoutPanel1
             // 
