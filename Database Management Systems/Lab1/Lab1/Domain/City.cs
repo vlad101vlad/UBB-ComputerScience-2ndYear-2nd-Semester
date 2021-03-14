@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Lab1.Domain
 {
-    class City
+    public class City
     {
         int ID;
         String name;
         int countryID;
+
+        public City()
+        {
+
+        }
 
         public City(int ID, string name, int countryID)
         {
@@ -19,32 +24,32 @@ namespace Lab1.Domain
             this.countryID = countryID;
         }
 
-        int getID()
+        public int getID()
         {
             return this.ID;
         }
 
-        void setID(int newID)
+        public void setID(int newID)
         {
             this.ID = newID;
         }
 
-        String getName()
+        public String getName()
         {
             return this.name;
         }
 
-        void setName(String newName)
+        public void setName(String newName)
         {
             this.name = newName;
         }
 
-        int getCountryID()
+        public int getCountryID()
         {
             return this.countryID;
         }
 
-        void setCountryID(int newCountryID)
+        public void setCountryID(int newCountryID)
         {
             this.countryID = newCountryID;
         }

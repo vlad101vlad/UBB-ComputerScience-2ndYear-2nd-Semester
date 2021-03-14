@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 using Lab1.Repository;
+using Lab1.Domain;
 
 namespace Lab1.Service
 {
@@ -15,6 +16,11 @@ namespace Lab1.Service
         public CityService(CityRepository cityRepository)
         {
             this.cityRepository = cityRepository;
+        }
+
+        public void addNewCity(City newCity)
+        {
+            cityRepository.addNewCity(newCity);
         }
 
         public DataTable getCities(int countyID)

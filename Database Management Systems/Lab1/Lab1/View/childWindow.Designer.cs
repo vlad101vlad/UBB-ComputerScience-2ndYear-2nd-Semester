@@ -70,6 +70,9 @@
             this.citiesDataGridView.RowTemplate.Height = 24;
             this.citiesDataGridView.Size = new System.Drawing.Size(771, 260);
             this.citiesDataGridView.TabIndex = 2;
+            this.citiesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.citiesDataGridView.MultiSelect = false;
+            this.citiesDataGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.citiesDataGridView_DataBindingComplete);
             // 
             // addNewCityButton
             // 
@@ -80,6 +83,7 @@
             this.addNewCityButton.TabIndex = 3;
             this.addNewCityButton.Text = "Add new city";
             this.addNewCityButton.UseVisualStyleBackColor = true;
+            this.addNewCityButton.Click += new System.EventHandler(this.addNewCityButton_Click);
             // 
             // updateSelectedCityButton
             // 
@@ -90,6 +94,7 @@
             this.updateSelectedCityButton.TabIndex = 4;
             this.updateSelectedCityButton.Text = "Update selected";
             this.updateSelectedCityButton.UseVisualStyleBackColor = true;
+            this.updateSelectedCityButton.Click += new System.EventHandler(this.updateSelectedCityButton_Click);
             // 
             // deleteSelectedCityButton
             // 

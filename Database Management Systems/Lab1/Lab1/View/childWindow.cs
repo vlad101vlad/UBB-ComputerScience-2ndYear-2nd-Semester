@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Lab1.Domain;
 using Lab1.Service;
+using Lab1.View;
 
 namespace Lab1
 {
@@ -30,6 +31,40 @@ namespace Lab1
         private void CitiesWindow_Load(object sender, EventArgs e)
         {
             citiesDataGridView.DataSource = cityService.getCities(countyID);
+        }
+
+        private void citiesDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            citiesDataGridView.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            citiesDataGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            citiesDataGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+        }
+
+        private void addNewCityButton_Click(object sender, EventArgs e)
+        {
+            using (addUpdateForm addUpdateForm = new addUpdateForm(constants.ADD_MODE, countyID))
+            {
+                //addUpdateForm.Show();
+
+                var result = addUpdateForm.ShowDialog();
+                if (result == DialogResult.OK)
+                    this.cityService.addNewCity(addUpdateForm.toBeReturnedCity);
+            }
+        }
+
+        private void updateSelectedCityButton_Click(object sender, EventArgs e)
+        {
+            using(addUpdateForm addUpdateForm = new addUpdateForm(constants.UPDATE_MODE, countyID))
+            {
+                addUpdateForm.Show();
+
+                var result = addUpdateForm.ShowDialog();
+                if (result == DialogResult.OK)
+                    this.cityService.addNewCity(addUpdateForm.toBeReturnedCity);
+
+            }
+            
+            
         }
     }
 }
