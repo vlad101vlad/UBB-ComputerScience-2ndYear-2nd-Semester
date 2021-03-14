@@ -62,14 +62,36 @@ namespace Lab1.Repository
             
         }
 
+        private void setAdapterUpdateCommand(City toBeUpdated)
+        {
+            String updateString = "UPDATE City SET Name = @CityName WHERE ID = @CityID";
+            adapter.UpdateCommand = new SqlCommand(updateString, databaseConnection);
+
+            SqlCommand updateCommand = adapter.UpdateCommand;
+            updateCommand.Parameters.AddWithValue("@CityID", toBeUpdated.getID());
+            updateCommand.Parameters.AddWithValue("@CityName", toBeUpdated.getName());
+        }
+
         public void addNewCity(City newCity)
         {
             openDatabaseConnection();
 
             var newCityRow = cities.Tables["City"].NewRow();
+            newCityRow["ID"] = newCity.getID();
             newCityRow["Name"] = newCity.getName();
             newCityRow["CountyID"] = newCity.getCountryID();
             cities.Tables["City"].Rows.Add(newCityRow);
+
+            adapter.Update(cities, "City");
+        }
+
+        public void updateCity(City updatedCity)
+        {
+            openDatabaseConnection();
+
+            setAdapterUpdateCommand(updatedCity);
+            DataRow updatedRow = cities.Tables["City"].Rows.Find(updatedCity.getID());
+            updatedRow["Name"] = updatedCity.getName();
 
             adapter.Update(cities, "City");
         }
@@ -85,13 +107,12 @@ namespace Lab1.Repository
         {
             openDatabaseConnection();
 
-            setCityDatasetPrimaryKey();
             setAdapterDeleteCommand(cityID);
             cities.Tables["City"].Rows.Find(cityID).Delete();
 
-
             adapter.Update(cities, "City");
         }
+
 
         private void readData(int countyID)
         {
@@ -110,7 +131,7 @@ namespace Lab1.Repository
         public DataTable getCitiesDataTable(int countyID)
         {
             readData(countyID);
-
+            setCityDatasetPrimaryKey();
             return cities.Tables["City"];
         }
     }

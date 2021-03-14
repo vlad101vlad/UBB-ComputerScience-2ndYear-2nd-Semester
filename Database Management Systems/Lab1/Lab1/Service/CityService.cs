@@ -23,6 +23,11 @@ namespace Lab1.Service
             cityRepository.addNewCity(newCity);
         }
 
+        public void updateCity(City updatedCity)
+        {
+            cityRepository.updateCity(updatedCity);
+        }
+
         public void deleteCity(int cityID)
         {
             cityRepository.deleteCity(cityID);

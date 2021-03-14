@@ -56,12 +56,11 @@ namespace Lab1
         {
             int cityID = (int)citiesDataGridView.SelectedCells[0].Value;
             using (addUpdateForm addUpdateForm = new addUpdateForm(constants.UPDATE_MODE, countyID, cityID))
-            {
-                
+            {               
 
                 var result = addUpdateForm.ShowDialog();
                 if (result == DialogResult.OK)
-                    this.cityService.addNewCity(addUpdateForm.toBeReturnedCity);
+                    this.cityService.updateCity(addUpdateForm.toBeReturnedCity);
 
             }
             
