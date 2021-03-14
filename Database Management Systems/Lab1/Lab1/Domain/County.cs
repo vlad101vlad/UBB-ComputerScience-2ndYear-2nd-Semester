@@ -6,33 +6,33 @@ using System.Threading.Tasks;
 
 namespace Lab1.Domain
 {
-    class Country
+    public class County
     {
         int ID;
         String name;
 
-        public Country(int iD, string name)
+        public County(int iD, string name)
         {
             ID = iD;
             this.name = name;
         }
 
-        int getID()
+        public int getID()
         {
             return this.ID;
         }
 
-        void setID(int newID)
+        public void setID(int newID)
         {
             this.ID = newID;
         }
 
-        String getName()
+        public String getName()
         {
             return this.name;
         }
 
-        void setName(String newName)
+        public void setName(String newName)
         {
             this.name = newName;
         }

@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Service\CityService.cs" />
     <Compile Include="View\childWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -53,7 +54,7 @@
       <DependentUpon>childWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Domain\City.cs" />
-    <Compile Include="Domain\Country.cs" />
+    <Compile Include="Domain\County.cs" />
     <Compile Include="View\mainWindow.cs">
       <SubType>Form</SubType>
     </Compile>

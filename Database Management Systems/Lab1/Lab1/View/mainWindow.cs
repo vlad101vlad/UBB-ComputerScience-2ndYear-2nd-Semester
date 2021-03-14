@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Lab1.Repository;
+using Lab1.Domain;
 using Lab1.Service;
 
 namespace Lab1
@@ -44,7 +46,15 @@ namespace Lab1
 
         private void parentTableGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            CitiesWindow citiesWindow = new CitiesWindow();
+            int countyID = (int)parentTableGridView.SelectedCells[0].Value;
+            String countyName = (string)parentTableGridView.SelectedCells[1].Value;
+            County currentCouty = new County(countyID, countyName);
+
+
+            CityRepository cityRepository = new CityRepository();
+            CityService cityService = new CityService(cityRepository);
+
+            CitiesWindow citiesWindow = new CitiesWindow(currentCouty, cityService);
             citiesWindow.Show();
         }
     }

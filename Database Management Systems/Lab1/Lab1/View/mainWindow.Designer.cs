@@ -69,6 +69,8 @@
             this.parentTableGridView.RowTemplate.Height = 24;
             this.parentTableGridView.Size = new System.Drawing.Size(958, 450);
             this.parentTableGridView.TabIndex = 2;
+            this.parentTableGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.parentTableGridView.MultiSelect = false;
             this.parentTableGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.parentTableGridView_CellClick);
             this.parentTableGridView.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.parentTableGridView_DataBindingComplete);
             // 

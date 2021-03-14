@@ -30,13 +30,13 @@
         {
             this.informationLabel = new System.Windows.Forms.Label();
             this.countyLabel = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.citiesDataGridView = new System.Windows.Forms.DataGridView();
             this.addNewCityButton = new System.Windows.Forms.Button();
             this.updateSelectedCityButton = new System.Windows.Forms.Button();
             this.deleteSelectedCityButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.citiesDataGridView)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -61,15 +61,15 @@
             this.countyLabel.TabIndex = 1;
             this.countyLabel.Text = "someCounty";
             // 
-            // dataGridView1
+            // citiesDataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(771, 260);
-            this.dataGridView1.TabIndex = 2;
+            this.citiesDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.citiesDataGridView.Location = new System.Drawing.Point(17, 54);
+            this.citiesDataGridView.Name = "citiesDataGridView";
+            this.citiesDataGridView.RowHeadersWidth = 51;
+            this.citiesDataGridView.RowTemplate.Height = 24;
+            this.citiesDataGridView.Size = new System.Drawing.Size(771, 260);
+            this.citiesDataGridView.TabIndex = 2;
             // 
             // addNewCityButton
             // 
@@ -135,13 +135,14 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.citiesDataGridView);
             this.Controls.Add(this.countyLabel);
             this.Controls.Add(this.informationLabel);
             this.Name = "CitiesWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CitiesWindow";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.CitiesWindow_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.citiesDataGridView)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -153,7 +154,7 @@
 
         private System.Windows.Forms.Label informationLabel;
         private System.Windows.Forms.Label countyLabel;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView citiesDataGridView;
         private System.Windows.Forms.Button addNewCityButton;
         private System.Windows.Forms.Button updateSelectedCityButton;
         private System.Windows.Forms.Button deleteSelectedCityButton;
