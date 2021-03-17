@@ -12,13 +12,23 @@ def dummysearch():
     return [[5, 7], [5, 8], [5, 9], [5, 10], [5, 11], [6, 11], [7, 11]]
 
 
-def displayWithPath(image, path):
+def displayWithPath(image, path, endCoordinates):
     mark = pygame.Surface((20, 20))
     mark.fill(GREEN)
     for move in path:
         image.blit(mark, (move[1] * 20, move[0] * 20))
 
+    newMark = pygame.Surface((20,20))
+    newMark.fill(RED)
+
+    image.blit(newMark, (endCoordinates[1] * 20, endCoordinates[0] * 20))
     return image
+
+
+def getRandomCoordinates():
+    randomX = randint(0, 19)
+    randomY = randint(0, 19)
+    return [randomX, randomY]
 
 
 class Service:
@@ -35,21 +45,32 @@ class Service:
 
     def initializeDrone(self):
         # we position the drone somewhere in the area
-        x = randint(0, 19)
-        y = randint(0, 19)
+        coordinates = getRandomCoordinates()
 
         # create drona
-        self._drone = Drone(x, y)
+        self._drone = Drone(coordinates[0], coordinates[1])
 
     def startGame(self):
         print("The game has started!\n")
+        droneMap = self._mapRepository.getMap()
+
         self.initializePygame()
+
+        # The drone can't start on brick squares
         self.initializeDrone()
+        while droneMap.surface[self._drone.x][self._drone.y] == 1:
+            self.initializeDrone()
+
+        startCoordinates = [self._drone.x, self._drone.y]
+
+        # End coordinates cannot be bricks
+        endCoordinates = getRandomCoordinates()
+        while droneMap.surface[self._drone.x][self._drone.y] == 1:
+            self.initializeDrone()
 
         screen = pygame.display.set_mode((400, 400))
         screen.fill(WHITE)
 
-        droneMap = self._mapRepository.getMap()
         # define a variable to control the main loop
         running = True
 
@@ -62,14 +83,15 @@ class Service:
                     # change the value to False, to exit the main loop
                     running = False
 
-                if event.type == pygame.KEYDOWN:
-                    self._drone.move(droneMap)  # this call will be erased
+                # if event.type == pygame.KEYDOWN:
+                #     self._drone.move(droneMap)  # this call will be erased
 
             screen.blit(self._drone.mapWithDrone(droneMap.image()), (0, 0))
             pygame.display.flip()
 
-        path = dummysearch()
-        screen.blit(displayWithPath(droneMap.image(), path), (0, 0))
+        path = self._drone.greedySearch(startCoordinates, endCoordinates, droneMap)
+        screen.blit(displayWithPath(droneMap.image(), path[0], endCoordinates), (0, 0))
+
 
         pygame.display.flip()
         time.sleep(5)
