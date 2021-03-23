@@ -18,7 +18,7 @@ def displayWithPath(image, path, endCoordinates):
     for move in path:
         image.blit(mark, (move[1] * 20, move[0] * 20))
 
-    newMark = pygame.Surface((20,20))
+    newMark = pygame.Surface((20, 20))
     newMark.fill(RED)
 
     image.blit(newMark, (endCoordinates[1] * 20, endCoordinates[0] * 20))
@@ -29,6 +29,16 @@ def getRandomCoordinates():
     randomX = randint(0, 19)
     randomY = randint(0, 19)
     return [randomX, randomY]
+
+
+def showInformation(searchType, path, executionTime):
+    if searchType == GREEDY:
+        print("Greedy search is done:")
+    if searchType == A_STAR:
+        print("A* search is done:")
+
+    print("Found path?: " + str(path[1]))
+    print("Execution time: " + str(executionTime))
 
 
 class Service:
@@ -50,7 +60,7 @@ class Service:
         # create drona
         self._drone = Drone(coordinates[0], coordinates[1])
 
-    def startGame(self):
+    def startGame(self, searchType):
         print("The game has started!\n")
         droneMap = self._mapRepository.getMap()
 
@@ -65,8 +75,8 @@ class Service:
 
         # End coordinates cannot be bricks
         endCoordinates = getRandomCoordinates()
-        while droneMap.surface[self._drone.x][self._drone.y] == 1:
-            self.initializeDrone()
+        while droneMap.surface[endCoordinates[0]][endCoordinates[1]] == 1:
+            endCoordinates = getRandomCoordinates()
 
         screen = pygame.display.set_mode((400, 400))
         screen.fill(WHITE)
@@ -74,6 +84,8 @@ class Service:
         # define a variable to control the main loop
         running = True
 
+        print("Start coordinates: " + str(startCoordinates))
+        print("End coordinates" + str(endCoordinates))
         # main loop
         while running:
             # event handling, gets all event from the event queue
@@ -89,9 +101,19 @@ class Service:
             screen.blit(self._drone.mapWithDrone(droneMap.image()), (0, 0))
             pygame.display.flip()
 
-        path = self._drone.greedySearch(startCoordinates, endCoordinates, droneMap)
-        screen.blit(displayWithPath(droneMap.image(), path[0], endCoordinates), (0, 0))
+        startTime = time.time()
 
+        if searchType == GREEDY:
+            path = self._drone.greedySearch(startCoordinates, endCoordinates, droneMap)
+
+        if searchType == A_STAR:
+            path = self._drone.aStarSearch(startCoordinates, endCoordinates, droneMap)
+
+        endTime = time.time()
+        executionTime = endTime - startTime
+
+        showInformation(searchType, path, executionTime)
+        screen.blit(displayWithPath(droneMap.image(), path[0], endCoordinates), (0, 0))
 
         pygame.display.flip()
         time.sleep(5)

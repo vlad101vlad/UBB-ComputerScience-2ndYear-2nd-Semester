@@ -13,5 +13,12 @@ DOWN = 2
 LEFT = 1
 RIGHT = 3
 
+
+GREEDY = 1
+A_STAR = 2
+
+INFINITY = float('inf')
+
+
 # define indexes variations
 v = [[-1, 0], [1, 0], [0, 1], [0, -1]]
