@@ -42,8 +42,7 @@ namespace Lab1
 
         private void addNewCityButton_Click(object sender, EventArgs e)
         {
-            int cityID = (int)citiesDataGridView.SelectedCells[0].Value;
-            using (addUpdateForm addUpdateForm = new addUpdateForm(constants.ADD_MODE, countyID, 0))
+            using (addUpdateForm addUpdateForm = new addUpdateForm(constants.ADD_MODE, countyID, this.cityService.getNextCityID()))
             {
 
                 var result = addUpdateForm.ShowDialog();
@@ -72,6 +71,11 @@ namespace Lab1
             int cityID = (int)citiesDataGridView.SelectedCells[0].Value;
 
             this.cityService.deleteCity(cityID);
+        }
+
+        private void CitiesWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.cityService.updateDatabase();
         }
     }
 }

@@ -67,8 +67,8 @@
             this.citiesDataGridView.Location = new System.Drawing.Point(17, 54);
             this.citiesDataGridView.MultiSelect = false;
             this.citiesDataGridView.Name = "citiesDataGridView";
-            this.citiesDataGridView.RowHeadersWidth = 51;
             this.citiesDataGridView.ReadOnly = true;
+            this.citiesDataGridView.RowHeadersWidth = 51;
             this.citiesDataGridView.RowTemplate.Height = 24;
             this.citiesDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.citiesDataGridView.Size = new System.Drawing.Size(771, 260);
@@ -148,6 +148,7 @@
             this.Name = "CitiesWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CitiesWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CitiesWindow_FormClosing);
             this.Load += new System.EventHandler(this.CitiesWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.citiesDataGridView)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);

@@ -33,9 +33,19 @@ namespace Lab1.Service
             cityRepository.deleteCity(cityID);
         }
 
+        public void updateDatabase()
+        {
+            cityRepository.updateDatabase();
+        }
+
         public DataTable getCities(int countyID)
         {
             return this.cityRepository.getCitiesDataTable(countyID);
+        }
+
+        public int getNextCityID()
+        {
+            return this.cityRepository.getNextCityId();
         }
 
     }

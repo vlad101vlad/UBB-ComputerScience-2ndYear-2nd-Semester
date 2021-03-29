@@ -46,6 +46,7 @@ namespace Lab1.View
         private City handleAddMode()
         {
             City newCity = new City();
+            newCity.setID(this.cityID);
             newCity.setName(cityNameTextBox.Text);
             newCity.setCountryID(Int32.Parse(countyIDTextBox.Text));
             return newCity;

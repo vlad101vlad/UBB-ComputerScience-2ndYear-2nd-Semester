@@ -14,6 +14,7 @@ namespace Lab1.Repository
         public string ConnectionString = "Data Source = VLADPC-S; Initial Catalog = JobTree; Integrated Security=True";
         SqlConnection databaseConnection = new SqlConnection();
         SqlDataAdapter adapter;
+        private int nextCityId = 0;
 
 
         //private DataTable cities;
@@ -34,6 +35,8 @@ namespace Lab1.Repository
                 databaseConnection.Open();
         }
 
+        // Update commands 
+        //@Insert
         private void setAdapterInsertCommand()
         {
             adapter.InsertCommand = new SqlCommand("procedure_InsertCity", databaseConnection);
@@ -50,7 +53,7 @@ namespace Lab1.Repository
             insertCommand.Parameters.Add(new SqlParameter("@CountyID",
                                          SqlDbType.Int,10, "CountyID"));
         }
-
+        //@Delete
         private void setAdapterDeleteCommand(int cityID)
         {
             String deleteString = "DELETE FROM City WHERE ID = @CityID";            
@@ -61,7 +64,7 @@ namespace Lab1.Repository
             //deleteCommand.Parameters.Add(new SqlParameter("@CityID", SqlDbType.Int));
             
         }
-
+        //@Update
         private void setAdapterUpdateCommand(City toBeUpdated)
         {
             String updateString = "UPDATE City SET Name = @CityName WHERE ID = @CityID";
@@ -82,7 +85,7 @@ namespace Lab1.Repository
             newCityRow["CountyID"] = newCity.getCountryID();
             cities.Tables["City"].Rows.Add(newCityRow);
 
-            adapter.Update(cities, "City");
+            //adapter.Update(cities, "City");
         }
 
         public void updateCity(City updatedCity)
@@ -93,7 +96,7 @@ namespace Lab1.Repository
             DataRow updatedRow = cities.Tables["City"].Rows.Find(updatedCity.getID());
             updatedRow["Name"] = updatedCity.getName();
 
-            adapter.Update(cities, "City");
+            //adapter.Update(cities, "City");
         }
 
         private void setCityDatasetPrimaryKey()
@@ -110,6 +113,11 @@ namespace Lab1.Repository
             setAdapterDeleteCommand(cityID);
             cities.Tables["City"].Rows.Find(cityID).Delete();
 
+            //adapter.Update(cities, "City");
+        }
+
+        public void updateDatabase()
+        {
             adapter.Update(cities, "City");
         }
 
@@ -126,6 +134,18 @@ namespace Lab1.Repository
             adapter.SelectCommand = selectCommand;
 
             adapter.Fill(cities, "City");
+        }
+
+        public int getNextCityId()
+        {
+            
+            foreach (DataRow dataRow in cities.Tables["City"].Rows)
+            {
+                int cityID = dataRow.Field<int>("ID");
+                this.nextCityId = Math.Max(cityID, this.nextCityId); 
+            }
+
+            return this.nextCityId + 1;
         }
 
         public DataTable getCitiesDataTable(int countyID)
