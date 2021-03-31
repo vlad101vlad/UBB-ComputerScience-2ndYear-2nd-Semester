@@ -1,5 +1,9 @@
+import pickle
 from random import *
 import numpy as np
+import pygame
+
+from Assignment3.Model.constants import *
 
 
 class Map:
@@ -21,3 +25,17 @@ class Map:
                 string = string + str(int(self.surface[i][j]))
             string = string + "\n"
         return string
+
+    def saveMap(self, fileName):
+        fileName = fileName + ".map"
+        with open(fileName, 'wb') as file:
+            pickle.dump(self, file)
+            file.close()
+
+    def loadMap(self, fileName):
+        fileName = fileName + ".map"
+        with open(fileName, "rb") as file:
+            dummy = pickle.load(file)
+            self.n = dummy.n
+            self.m = dummy.m
+            self.surface = dummy.surface

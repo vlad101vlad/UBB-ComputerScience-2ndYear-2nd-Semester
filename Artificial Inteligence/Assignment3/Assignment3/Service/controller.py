@@ -2,9 +2,9 @@ from Assignment3.Repository.repository import *
 
 
 class Controller:
-    def __init__(self, args):
+    def __init__(self, repository: Repository):
         # args - list of parameters needed in order to create the controller
-        pass
+        self._repository = repository
 
     def iteration(self, args):
         # args - list of parameters needed to run one iteration
@@ -32,3 +32,10 @@ class Controller:
         # run the algorithm
         # return the results and the statistics
         pass
+
+    # Map controller
+    def loadNewMap(self, mapName):
+        self._repository.loadMap(mapName)
+
+    def getCurrentMap(self):
+        return self._repository.getCurrentMap()

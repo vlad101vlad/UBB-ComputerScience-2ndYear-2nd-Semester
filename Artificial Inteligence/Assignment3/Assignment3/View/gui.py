@@ -6,12 +6,13 @@ import time
 from Assignment3.Model.utils import *
 
 
-def initPyGame(dimension):
+def initPyGame(dimension=(400, 400)):
     # init the pygame
     pygame.init()
+
     logo = pygame.image.load("../logo32x32.png")
     pygame.display.set_icon(logo)
-    pygame.display.set_caption("drone exploration with AE")
+    pygame.display.set_caption("Drone exploration with AE")
 
     # create a surface on screen that has the size of 800 x 480
     screen = pygame.display.set_mode(dimension)
@@ -19,7 +20,7 @@ def initPyGame(dimension):
     return screen
 
 
-def closePyGame():
+def closePyGame(screen, image):
     # closes the pygame
     running = True
     # loop for events
@@ -30,6 +31,9 @@ def closePyGame():
             if event.type == pygame.QUIT:
                 # change the value to False, to exit the main loop
                 running = False
+
+        screen.blit(image, (0, 0))
+        pygame.display.flip()
     pygame.quit()
 
 
@@ -38,7 +42,7 @@ def movingDrone(currentMap, path, speed=1, markSeen=True):
 
     screen = initPyGame((currentMap.n * 20, currentMap.m * 20))
 
-    drona = pygame.image.load("../drona.png")
+    drona = pygame.image.load("../../drona.png")
 
     for i in range(len(path)):
         screen.blit(image(currentMap), (0, 0))
