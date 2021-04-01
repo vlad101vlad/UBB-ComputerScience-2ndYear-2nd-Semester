@@ -1,0 +1,283 @@
+header{
+    width: 100%;
+    height: 60px;
+    margin: 0 auto;
+    position: relative;
+    display: block;
+}
+
+#logo{
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='25' viewBox='0 0 32 25'%3E%3Cg fill='%23C74634'%3E%3Cpath d='M9.9,20.1c-5.5,0-9.9-4.4-9.9-9.9c0-5.5,4.4-9.9,9.9-9.9h11.6c5.5,0,9.9,4.4,9.9,9.9c0,5.5-4.4,9.9-9.9,9.9H9.9 M21.2,16.6c3.6,0,6.4-2.9,6.4-6.4c0-3.6-2.9-6.4-6.4-6.4h-11c-3.6,0-6.4,2.9-6.4,6.4s2.9,6.4,6.4,6.4H21.2'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: center;
+    background-repeat: no-repeat;
+
+
+    text-indent: -9999px;
+}
+
+body{
+    color: #fff;
+    background-color: #3a3632;
+    font-size: 1.6rem;
+    font-family: "OracleSansVF","OracleSansVFCyGr",-apple-system,
+    BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+    font-weight: 400;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+.navbar{
+    height: 100%;
+}
+
+.navbar, .mainContent{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+
+    font-size: 16px;
+}
+
+.mainContent{
+    background-image: url("https://www.oracle.com/asset/web/i/rw-natural06-80p.png") !important;
+
+    margin-left: 60px;
+    margin-right: 60px;
+
+    position: relative;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+h2{
+    display: block;
+    font-weight: 400!important;
+
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+h1,h2{
+    padding: 0;
+    line-height: 1.2;
+    margin: 0 0 0.4em;
+}
+
+img{
+    height: 16px;
+}
+
+section{
+    display: flex;
+    position: relative;
+}
+
+.navBarElementBoxing{
+    padding: 0 8px 0 8px;
+    margin: 0 5px 0 5px;
+}
+
+.contentBox{
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
+#java{
+    font-weight: 400;
+}
+
+h1{
+    display: flex;
+    flex: 15;
+    flex-flow: column nowrap;
+    align-items: stretch;
+
+    padding-left: 38px;
+    padding-right: 38px;
+    background-color: #161513;
+
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+
+    white-space: nowrap;
+
+    justify-content: center;
+    clear: both;
+    min-width: 974px;
+    margin: 0;
+}
+
+.imgWrapper{
+    font-size: 1.6rem;
+    padding-right: 10px;
+}
+
+
+#\#cloudIcon{
+    font-size: 0!important;
+    height: 337px;
+    width: 337px;
+}
+
+#contentTitle{
+    font-size: 48px;
+    margin-bottom: 19px;
+}
+
+#contentText{
+    font-size: 15.35px;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+.tableWrapper{
+    padding: 0 60px 0 60px;
+}
+
+ul{
+    position: relative;
+    display: table;
+    list-style: none;
+    table-layout: fixed;
+
+    padding: 30px 0px 30px 0px;
+    color: #000;
+}
+
+
+.listHorizontal{
+    float: left;
+    font-size: 15.35px;
+    padding: 0 18px 0 18px;
+}
+
+li{
+    font-size: 15.35px;
+    margin-bottom: 9.2px;
+}
+
+.middleNav{
+    width: 100%;
+    height: 84px;
+    background: rgba(255,255,255,1);
+}
+
+.downloadsSection{
+    background-color: #f1efed !important;
+}
+
+.downloadTables{
+    margin: 0 60px 0 60px;
+}
+
+
+.col-framework{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.col-item{
+    margin-left: 0;
+    margin-right: auto;
+}
+
+.col-item > ul{
+    padding-top: 0px;
+    margin-top: 0px;
+}
+
+.downloadsSection > li{
+    float: none;
+}
+
+h5{
+    color: black;
+    padding-bottom: 16px!important;
+    margin-bottom: 7px!important;
+    font-weight: normal;
+}
+
+a:link{
+    color: #00688C;
+    font-family: sans-serif;
+}
+
+
+#searchIcon{
+    height: 41px;
+    width: 41px;
+    text-align: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='m10.1212266 1c5.0372326 0 9.1212266 4.08405043 9.1212266 9.1213526 0 2.1536493-.7465159 4.133053-1.9948779 5.6935382l5.7524247 5.7518269-1.4332625 1.4332823-5.7516795-5.7524977c-1.5605211 1.2485582-3.5400409 1.995203-5.6938314 1.995203-5.03723262 0-9.1212266-4.0840504-9.1212266-9.1213527 0-5.03730217 4.08399398-9.1213526 9.1212266-9.1213526zm0 2.02696725c-3.91778498 0-7.09428736 3.17654628-7.09428736 7.09438535 0 3.9178392 3.17650238 7.0943854 7.09428736 7.0943854 3.9177849 0 7.0942873-3.1765462 7.0942873-7.0943854 0-3.91783907-3.1765024-7.09438535-7.0942873-7.09438535z' fill='%23FBF9F8' fill-rule='evenodd'/%3E%3C/svg%3E");
+    text-indent: -9999px;
+}
+
+#userIcon{
+    height: 24px;
+    width: 24px;
+    text-indent: -9999px;
+
+    padding: 11px 0 11px 0;
+
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='24px' height='24px' viewBox='0 0 24 24' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cpath d='M12,1 C18.0751322,1 23,5.92486775 23,12 C23,18.0751322 18.0751322,23 12,23 C5.92486775,23 1,18.0751322 1,12 C1,5.92486775 5.92486775,1 12,1 Z M14,17 L10,17 C8.9456382,17 8.08183488,17.8158778 8.00548574,18.8507377 L8,19 L7.9999083,20.0644348 C9.20489006,20.6632768 10.5631221,21 12,21 C13.437276,21 14.7958624,20.6630902 16.001093,20.0639371 L16,19 C16,17.9456382 15.1841222,17.0818349 14.1492623,17.0054857 L14,17 Z M12,3 C7.02943725,3 3,7.02943725 3,12 C3,14.6709139 4.16346432,17.0700862 6.011229,18.7183529 C6.15016737,16.7059643 7.77779862,15.1043091 9.80035966,15.0048953 L10,15 L14,15 C16.1140799,15 17.8451043,16.6400557 17.9901616,18.7172556 C19.8369514,17.0692289 21,14.6704367 21,12 C21,7.02943725 16.9705627,3 12,3 Z M12,5 C14.206,5 16,6.794 16,9 C16,11.206 14.206,13 12,13 C9.794,13 8,11.206 8,9 C8,6.794 9.794,5 12,5 Z M12,7 C10.897,7 10,7.897 10,9 C10,10.103 10.897,11 12,11 C13.103,11 14,10.103 14,9 C14,7.897 13.103,7 12,7 Z' fill='%23FBF9F8'%3E%3C/path%3E%3C/svg%3E");
+
+}
+
+#phoneIcon{
+    height: 24px;
+    width: 24px;
+    text-indent: -9999px;
+
+    padding: 11px 0 11px 0;
+
+    background-position-x: center;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.47665 10.8665L7.44975 6.89343L6.74264 1.94368H2.5C2.5 1.94368 -1.03553 6.89343 6.03553 13.9645C13.1066 21.0356 18.0563 17.5 18.0563 17.5L18.0563 13.2574L13.1066 12.5503L9.1335 16.5234' stroke='white' stroke-width='2' stroke-miterlimit='10'/%3E%3C/svg%3E");
+}
+
+#viewAccounts{
+    background-color: #312D2A !important;
+}
+
+#\#contactSales{
+    border-radius: 4px;
+    border: 1px solid #FBF9F8;
+}
+
+.informationContent{
+    color: #FBF9F8;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+
+    padding: 11px 20px 11px 11px;
+}
+
+#buttonContent{
+    font-weight: 500;
+    color: black;
+}
+
+.buttonWrapper{
+    border-radius: 4px;
+    height: 44px;
+    width: 300px;
+    background-color: white!important;
+    display: flex;
+}
+
+.button{
+    margin: auto;
+}
